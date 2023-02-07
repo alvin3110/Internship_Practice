@@ -1,0 +1,11 @@
+//alphabet or digit or special character
+Step1:start
+step2:Declare ch;
+step3:Read ch;
+step3:perform operation if((ch >= 'a' && ch <= 'z') 
+         Display ch is alphabet
+      elseif(ch >= '0' && ch <= '9')
+         Display ch is digit
+      else
+         Display ch is special chracter
+step4: Stop

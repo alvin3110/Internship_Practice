@@ -1,0 +1,10 @@
+//check if number is even or odd or psoitive or negative
+Step1:Start
+Step2:Declare a;
+Step3:read a;
+Step4:if a%2==0, Display a is even;
+      else Display a is odd
+      if a>0 display a is positive
+      else if a<0 display a is negative
+      else display it is zero
+Step5:Stop

@@ -1,0 +1,8 @@
+//find area of triangle
+
+step1: start
+step2: declare base,height,area
+step3: read base,height
+step4: area=1/2*base*height
+step5: display area
+step6: stop

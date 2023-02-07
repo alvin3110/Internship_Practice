@@ -1,0 +1,7 @@
+//perimeter of triangle
+step1: start
+step2: declare a,b,c,peri
+step3: read a,b,c
+step4: peri=a+b+c
+step5: display peri
+step6: stop

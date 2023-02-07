@@ -1,0 +1,9 @@
+//check if char is t or not
+step1:start
+step2:declare char;
+step3:read char;
+step4:if char=='t'
+    display char is t;
+     else
+    diplay char is not t;
+step5:stop

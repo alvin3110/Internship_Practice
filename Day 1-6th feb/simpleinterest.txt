@@ -1,0 +1,7 @@
+find simple intrest 
+Step 1 : Start 
+Step 2 : Declare variables  p , n , r  and  si .
+Step 3 : Read the values of variable  p ( principle ) , n(no of years) , r ( Rate of Interest ) .
+Step 4 : calculate:si = ( p * n * r )/100 ;
+Step 5 : Display si ( simple interest ) ;
+Step 6 : Stop
