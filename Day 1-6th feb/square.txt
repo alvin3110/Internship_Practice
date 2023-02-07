@@ -1,0 +1,8 @@
+//find area and perimeter of square
+
+step1:start
+step2:declare side,area,perimeter
+step3:read side
+step4:area= side*side,perimeter=4*side
+step5:display area,perimeter
+step6:stop

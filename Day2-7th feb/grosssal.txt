@@ -1,0 +1,15 @@
+//Gross_sal
+Step1:Start
+Step2:declare basic_sal,hra,da,gross_sal;
+Step3:Read basic_sal;
+Step4:if (basic_sal<= 10000)
+       da  = basic_sal * 0.8;
+       hra = basic_sal * 0.2;
+      else if (basic_sal<= 20000)
+       da  = basic_sal * 0.90;
+       hra = basic_sal * 0.25;
+      else if(basic_sal> 20000)
+       da  = basic_sal * 0.95;
+       hra = basic_sal * 0.3;
+Step5: gross_sal=basic_sal+da+hra;
+Step6:Stop

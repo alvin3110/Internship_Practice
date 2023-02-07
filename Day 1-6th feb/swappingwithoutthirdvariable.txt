@@ -1,0 +1,7 @@
+//swapping without third variable
+step1:start
+step2:declare num1,num2
+step3:read num1,num2;
+step4:num1=num1+num2;num2=num1-num2;num1=num1-num2;
+step5:display num1,num2;
+step6:stop

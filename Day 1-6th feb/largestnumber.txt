@@ -1,0 +1,7 @@
+//find the biggest among three numbers
+Step1:Start
+Step2:declare:a, b, c
+Step3:Read a,b,c
+Step4:if a>b and a>c, Display a is largest
+      else if b>a and b>c , Display b is largest
+      else Display c is largest

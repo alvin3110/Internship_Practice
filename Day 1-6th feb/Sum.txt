@@ -1,0 +1,11 @@
+Problem:Find the Sum of two numbers
+//input: Num1,Num2
+//Process:Sum=Num1+Num2
+//Output:Sum
+Step1:start
+step2:Declare variables num1,num2,sum;
+step3:Read num1,num2;//12,4
+step3:add two numbers and store in variable
+          sum=num1+num2//sum=12+4=16
+step4:dispalay sum;//16
+step 5:stop

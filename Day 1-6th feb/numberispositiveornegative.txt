@@ -1,0 +1,7 @@
+//Check number is positive or negative
+Step1:Start
+Step2:declare a
+Step3:read a
+Step4:if(a>=0), Display a is positive
+      else Display a is negative
+Step5:Stop

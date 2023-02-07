@@ -1,0 +1,7 @@
+//Find whether number is Even or odd
+Step1:Start
+Step2:Declare a;
+Step3:read a;
+Step4:if a%2==0, Display a is even;
+      else Display a is odd
+Step5:Stop

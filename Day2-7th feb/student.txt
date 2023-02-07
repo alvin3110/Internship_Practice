@@ -1,0 +1,19 @@
+//Student
+Step1:Start
+Step2:Declare s1,s2,s3,s4,s5,avg,per,grade,max marks;
+Step3:read s1,s2,s3,s4,s5,max marks;
+Step4:avg=s1+s2+s3+s4+s5/5;
+      per=(s1+s2+s3+s4+s5/max marks)*100;
+      if(per>=90 and per<=100)
+       display Grade A
+      else if(per>=80  and per<=90)
+       display Grade B
+      else if(per>=70  and per<=80)
+       display Grade C
+      else if(per>=60  and per<=70)
+       display Grade D;
+      else 
+       display fail;
+Step5: Stop
+
+      

@@ -1,0 +1,7 @@
+//check whether character is vowel or consonant
+Step1:Start
+Step2:declare char;
+Step3:read char;
+Step4:if char=="a" or char=="e"or char=="i" or char=="o" or char=="u" display char is vowel
+      else Display char is consonant
+Step5:Stop
