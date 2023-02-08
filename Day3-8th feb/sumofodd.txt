@@ -1,0 +1,10 @@
+step1:start
+step 2:declare i ,n;
+step3:read n
+step4:intialize the i value i=1
+step5:check i value with n if(i<=n) if true go to step 6 if the condition false go to step 8
+step 6:(if i%2 != 0)
+       sum=sum+i ;
+step7:increment i go to step 5
+step8:display sum
+step9:stop

@@ -1,0 +1,12 @@
+//sum of factors
+step1:start
+step2:declare n,i,sum;
+step3:read n;
+step4:intialize the i value i=1,sum=0;
+step5:check i value with n if(i<=n/2) if true go to step 6 if the condition false go to 
+     step 8;
+step6:if (n%i==0) if false goto step 7
+      sum=sum+i;
+step7:increment i and go to step 5
+step8:display sum
+step9:stop
