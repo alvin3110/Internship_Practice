@@ -1,0 +1,5 @@
+step1:start
+step2:collect order details from employee
+step3: prepare bill according to order and menu price and give it to employee
+step4: collect amount and update payment status
+step5:stop

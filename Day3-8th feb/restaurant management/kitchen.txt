@@ -1,0 +1,7 @@
+step1:start
+step2:give info about dish availibility to employee
+step3:wait for order from customer collected by employee
+step4:collect order details and customer requirements
+step5:once order is received prepare the food and keep in the kitchen according to customer need
+step6:keep item ready for employee
+step6:stop

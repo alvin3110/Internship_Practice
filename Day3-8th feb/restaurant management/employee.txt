@@ -1,0 +1,9 @@
+step1:start
+step2:identify menu items and availability from the kitchen
+step3:if customer order food tell whether it is available or not
+step4:if available take order and give to kitchen and once done from kitchen serve the food to respective customer
+step5:else not available ask customer to change the dish
+Step6:Ask customer if he needs anything else
+ if yes collect order according to availability info from kitchen
+else give the bill 
+step7:stop
