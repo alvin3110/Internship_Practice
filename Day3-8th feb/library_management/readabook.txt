@@ -1,0 +1,10 @@
+//read a book
+step1:Start
+step2:declare  sid,r_input,book_details,s_details
+step3:read sid,r_input
+Step4:check if(sid matching S_details) if true then go to step5 else if false goto step 7
+step5:check if(r_input matching book_details and bookstatus==available) if false goto step7
+       display book available..enjoy reading
+step6: update book status =on use
+step7:display book not available
+step7:stop

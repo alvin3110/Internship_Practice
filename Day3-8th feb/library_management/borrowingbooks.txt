@@ -1,0 +1,11 @@
+//borrowingbooks
+Step1:start
+Step2:declare sid,r_input,book_details,s_details;
+step3:read sid,r_input
+step4:check if(sid matching S_details) if true then go to step5 else if false goto step 9
+step5:check if(r_input matching book_details and check bookstatus in book_details==available) if false goto step8
+       display book available
+step6: update book status =borrowed in book_details 
+step7:update borrowrecords in s_details with r_input and update return date=current date+14
+step8:display book not available
+step9:stop

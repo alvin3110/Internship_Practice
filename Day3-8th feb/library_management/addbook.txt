@@ -1,0 +1,10 @@
+//add book
+step1:start
+step2:declare b_id,b_name,book_details;
+step3:read b_id,b_name;
+step4:check if (b_id already present book_details record) if true then
+         display use different id;
+          else 
+    add b_id,name,b_id to book_details and update status = available
+         display book added!;
+step5:stop

@@ -1,0 +1,8 @@
+//delete a book
+step1:start
+step2:declare r_input,book_details
+step3:check if(r_input matching any records in book_details) 
+       if true then delete book
+      else
+        display no book found
+step4:stop

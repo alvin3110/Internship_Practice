@@ -1,0 +1,12 @@
+//return book
+step1:start
+step2:declare sid,b_id,book_details,s_details
+step3:read sid,bid;
+step4:check if (sid is matching record in s_details)
+        if true goto step 5 else goto step 6
+step5:check if (b_id matching record in book_details)
+         if true then update book status=available
+          display return succesful
+      else 
+          display no book found enter correct id
+step6:stop

@@ -1,0 +1,35 @@
+//atm management
+
+step1: start
+step2: go to atm
+step3: declare amount,balance
+step4: enter your pin
+step5:check pin if correct then goto step 6
+step6: Select : withdrawal|deposit|balance|pin change
+step7: if (select==withdrawal) if false goto step 9
+      display enter the amount to be withdrawn
+step8: read amount,balance
+step9:check if (amount<=balance) if true then disperse money 
+      and update balance=balance-w_amount and goto step 20
+      else display insufficient balance
+step10: else if (select==deposit) if false goto step 12
+     display enter amount to be deposited:
+     display enter number of notes respective 100,200,500,2000
+step11:if all entered correctly and cash is collected
+        display deposit succesfull and give receipt
+        update balance=balance+d_amount and goto step 20
+Step12:else if (select==balance) if false goto step 13
+      display balance
+step13:else if (select==pinchange)
+step14:enter phone number
+step15:check  if phonenumber matching account phone number then send otp if false goto 
+                               step 18 
+step16: enter otp and check if correct then proceed to step 17 else ask to re-enter otp(step16)
+step17:enter new pin 
+step18:confirm new pin  
+          display succesfull pin change goto step 20
+step19:else  
+          display phonenumber not matching and goto step14
+step20:Stop
+
+
