@@ -1,0 +1,12 @@
+//largest number of three
+BEGIN
+     DECLARE num1,num2,num3;
+     READ num1,num2,num3;
+     IF (num1>num2) && (num1>num3) THEN
+              DISPLAY "num1 is bigger"
+     ELSE IF (num2>num1) && (num2>num3) THEN
+              DISPLAY "num2 is bigger"
+     ELSE
+                DISPLAY "num3 is bigger"
+     END IF
+END

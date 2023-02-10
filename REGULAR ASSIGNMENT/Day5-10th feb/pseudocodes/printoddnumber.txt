@@ -1,0 +1,12 @@
+//display odd numbers between 1-n
+BEGIN
+     DECLARE n,i;
+     READ n;
+     INTIALISE i=1;
+      WHILE (i<=n) DO
+              IF(i%2!=0) THEN
+                 DISPLAY i;
+              END IF
+              i=i+1;
+      END WHILE
+END

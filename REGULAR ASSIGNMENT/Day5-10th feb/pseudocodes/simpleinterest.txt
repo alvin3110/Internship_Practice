@@ -1,0 +1,7 @@
+//calculate simple interest
+BEGIN
+   DECLARE p,n,r,si
+   READ p,n,r;
+   CALCULATE si = ( p * n * r )/100 ;
+   DISPLAY si
+END

@@ -1,0 +1,7 @@
+//area of triangle
+BEGIN
+   DECLARE b,h,area;
+   READ b,h;
+   CALCULATE area=1/2 *(b*h);
+   DISPLAY area;
+END

@@ -1,0 +1,7 @@
+//area and perimeter of square
+BEGIN
+     DECLARE side,per,area;
+     READ side;
+     CALCULATE area=side*side,peri=4*side;
+     DISPLAY area,peri;
+END

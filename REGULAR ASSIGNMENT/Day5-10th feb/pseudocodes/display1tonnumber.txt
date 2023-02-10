@@ -1,0 +1,10 @@
+//1 to n numbers
+BEGIN
+     DECLARE n,i;
+     READ n;
+     INTIALISE i=1;
+      WHILE (i<=n) DO
+              DISPLAY i;
+               i=i+1;
+      END WHILE
+END
