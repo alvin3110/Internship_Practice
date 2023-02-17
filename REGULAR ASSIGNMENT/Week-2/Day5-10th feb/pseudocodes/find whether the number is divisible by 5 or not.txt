@@ -1,0 +1,10 @@
+//divisible by 5 or not
+BEGIN
+   DECLARE num;
+   READ num;
+   IF (num%5==0) THEN
+      DISPLAY divisible
+   ELSE
+      DISPLAY not divisible
+   END IF
+END

@@ -1,0 +1,17 @@
+//calculate gross sal
+BEGIN
+   DECLARE basic_sal,hra,da,gross_sal;
+   READ basic_sal;
+   IF(basic_sal<= 10000) THEN
+       CALCULATE da  = basic_sal * 0.8;
+       CALCULATE hra = basic_sal * 0.2;
+   ELSE IF(basic_sal<= 20000) THEN
+       CALCULATE da  = basic_sal * 0.90;
+       CALCULATE hra = basic_sal * 0.25;
+   ELSE IF(basic_sal> 20000) THEN
+       CALCULATE da  = basic_sal * 0.95;
+       CALCULATE hra = basic_sal * 0.3;
+   END IF
+   CALCULATE gross_sal=basic_sal+da+hra;
+END
+  

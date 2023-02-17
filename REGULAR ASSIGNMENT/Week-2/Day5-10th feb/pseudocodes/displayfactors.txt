@@ -1,0 +1,12 @@
+//display factors of n
+BEGIN
+     DECLARE n,i;
+     READ n;
+     INTIALISE i=1;
+      WHILE (i<=n/2) DO
+              IF(n%i==0) THEN
+                 DISPLAY i;
+              END IF
+              i=i+1;
+      END WHILE
+END

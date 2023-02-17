@@ -1,0 +1,12 @@
+//check whether character is alphabet or digit or special character
+BEGIN
+   DECLARE char;
+   READ char;
+   IF(char>='a' && char<='z')THEN
+      DISPLAY char is alphabet;
+   ELSE IF(char>='0' && char<='9') THEN
+      DISPLAY char is digit;
+   ELSE
+      DISPLAY char is special character;
+   END IF
+END

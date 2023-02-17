@@ -1,0 +1,6 @@
+BEGIN
+   DECLARE a,b,c,peri;//a,b,c are sides of triangle
+   READ a,b,c;
+   CALCULATE peri=a+b+c;
+   DISPLAY peri;
+END

@@ -1,0 +1,18 @@
+//find avg, percentage,grade of student
+BEGIN
+   DECLARE s1,s2,s3,s4,s5,avg,per,grade,max marks;
+   READ s1,s2,s3,s4,s5,max marks;
+   CALCULATE avg=(s1+s2+s3+s4+s5)/5,per=((s1+s2+s3+s4+s5)/max marks)*100;
+   DISPLAY avg,per;
+   IF(per>=90 and per<=100) THEN
+       DISPLAY grade=A
+   ELSE IF(per>=80  and per<=90) THEN
+       DISPLAY grade=B
+   ELSE IF(per>=70  and per<=80) THEN
+       DISPLAY grade=C
+   ELSE IF(per>=60  and per<=70) THEN
+       DISPLAY grade=D;
+   ELSE
+       DISPLAY FAIL;
+   END IF
+END

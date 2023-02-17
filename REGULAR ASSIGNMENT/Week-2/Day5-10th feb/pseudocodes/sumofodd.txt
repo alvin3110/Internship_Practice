@@ -1,0 +1,13 @@
+//sum of odd numbers
+BEGIN
+    DECLARE n,i,sum
+    READ n
+    INTIALISE i=0 sum=0
+    WHILE (i<=n) DO
+             IF i%2!=0 THEN
+                     CALCULATE sum=sum+i
+              END IF
+              i=i+1
+      END WHILE
+      DISPLAY sum
+END 

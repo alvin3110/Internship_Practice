@@ -1,0 +1,7 @@
+//rectangle area and peri
+BEGIN
+     DECLARE l,b,per,area;
+     READ l,b;
+     CALCULATE area=l*b,peri=2*(l+b);
+     DISPLAY area,peri;
+END
