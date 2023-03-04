@@ -9,7 +9,7 @@ class PhoneNumberValidator{
       
   public static void main(String args[]){
     Scanner sc=new Scanner(System.in);
-    int ph[i]=new int[10];
+    int ph[]=new int[10];
     for(int i=0;i<10;i++)
       ph[i]=sc.nextInt();
     validate(ph);
