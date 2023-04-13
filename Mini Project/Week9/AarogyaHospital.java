@@ -334,13 +334,13 @@ class PatientManagementSystem {
   }
 }
 
-public class Patientmain {
+public class AarogyaHospital{
   public static void main(String[] args) {
     PatientManagementSystem patientSystem = new PatientManagementSystem();
     Scanner sc = new Scanner(System.in);
     boolean exit = false;
     while (!exit) {
-      System.out.println("Arogya Hospital:Patient Management System(Team 5)");
+      System.out.println("Aarogya Hospital:Patient Management System(Team 5)");
       System.out.println("1. Add Patient");
       System.out.println("2. Search Patient by ID");
       System.out.println("3. Search Patient by Name");
