@@ -58,7 +58,8 @@ class ElectronicProduct implements Product {
   }
   
   public String toString() {
-    return "ElectronicProduct{" +"name='" + name + '\'' +", description='" + description + '\'' +", price=" + price +", quantity=" + quantity +", brand='" + brand + '\'' +", warranty='" + warranty + '\'' +'}';
+    return String.format("%5s %10s %10f %8d %20s %17s", 
+ name,description,price,quantity,brand,warranty);
   }
 }
 
@@ -103,83 +104,86 @@ class ClothingProduct implements Product {
         return color;
     }
 
-    public String toString() {
-        return "ClothingProduct{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", quantity=" + quantity +
-                ", size='" + size + '\'' +
-                ", color='" + color + '\'' +
-                '}';
-    }
+   public String toString() {
+    return String.format("%5s %10s %10f %8d %20s %17s", name, description, price, quantity, size, color);
+   }
 }
+class ShoppingCart {
+    private ArrayList<Product> items = new ArrayList<Product>();
+    private ArrayList<ElectronicProduct> electronicProducts = new ArrayList<ElectronicProduct>();
+    private ArrayList<ClothingProduct> clothingProducts = new ArrayList<ClothingProduct>();
 
-class ShoppingCart 
-{
-  private ArrayList<Product> items = new ArrayList<Product>();
-  void addItem() {
-    Scanner sc = new Scanner(System.in);
-    System.out.print("Enter product type (1 for ElectronicProduct, 2 for ClothingProduct): ");
-    int productType = sc.nextInt();
-    if (productType == 1) {
-      System.out.print("Enter product name: ");
-      String name = sc.next();
-      System.out.print("Enter product description: ");
-      String description = sc.next();
-      System.out.print("Enter product price: ");
-      double price = sc.nextDouble();
-      System.out.print("Enter product quantity: ");
-      int quantity = sc.nextInt();
-      System.out.print("Enter product brand: ");
-      String brand = sc.next();
-      System.out.print("Enter product warranty (in years): ");
-      String warranty = sc.next();
-      ElectronicProduct electronicProduct = new ElectronicProduct(name, description, price, quantity, brand, warranty);
-      items.add(electronicProduct);
-    } else if (productType == 2) {
-      System.out.print("Enter product name: ");
-      String name = sc.next();
-      System.out.print("Enter product description: ");
-      String description = sc.next();
-      System.out.print("Enter product price: ");
-      double price = sc.nextDouble();
-      System.out.print("Enter product quantity: ");
-      int quantity = sc.nextInt();
-      System.out.print("Enter product size: ");
-      String size = sc.next();
-      System.out.print("Enter product color: ");
-      String color = sc.next();
-      ClothingProduct clothingProduct = new ClothingProduct(name, description, price, quantity, size, color);
-      items.add(clothingProduct);
-    } else {
-      System.out.println("Invalid product type. Please try again.");
+    void addItem() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter product type (1 for ElectronicProduct, 2 for ClothingProduct): ");
+        int productType = sc.nextInt();
+        if (productType == 1) {
+            System.out.print("Enter product name: ");
+            String name = sc.next();
+            System.out.print("Enter product description: ");
+            String description = sc.next();
+            System.out.print("Enter product price: ");
+            double price = sc.nextDouble();
+            System.out.print("Enter product quantity: ");
+            int quantity = sc.nextInt();
+            System.out.print("Enter product brand: ");
+            String brand = sc.next();
+            System.out.print("Enter product warranty (in years): ");
+            String warranty = sc.next();
+            ElectronicProduct electronicProduct = new ElectronicProduct(name, description, price, quantity, brand, warranty);
+            items.add(electronicProduct);
+            electronicProducts.add(electronicProduct);
+        } else if (productType == 2) {
+            System.out.print("Enter product name: ");
+            String name = sc.next();
+            System.out.print("Enter product description: ");
+            String description = sc.next();
+            System.out.print("Enter product price: ");
+            double price = sc.nextDouble();
+            System.out.print("Enter product quantity: ");
+            int quantity = sc.nextInt();
+            System.out.print("Enter product size: ");
+            String size = sc.next();
+            System.out.print("Enter product color: ");
+            String color = sc.next();
+            ClothingProduct clothingProduct = new ClothingProduct(name, description, price, quantity, size, color);
+            items.add(clothingProduct);
+            clothingProducts.add(clothingProduct);
+        } else {
+            System.out.println("Invalid product type. Please try again.");
+        }
     }
-  }
-  void removeItem(int index) {
-    if (index >= 0 && index < items.size()) {
-      items.remove(index);
-      System.out.println("Item removed.");
-    } else {
-      System.out.println("Invalid index. Please try again.");
+
+    void removeItem(int index) {
+        if (index >= 0 && index < items.size()) {
+            items.remove(index);
+            System.out.println("Item removed.");
+        } else {
+            System.out.println("Invalid index. Please try again.");
+        }
     }
-  }
-  void displayCart() {
-    if (items.isEmpty()) {
-        System.out.println("Your cart is empty.");
-    } else {
-      for (int i = 0; i < items.size(); i++) {
-        System.out.println("Item " + (i+1) + ": " + items.get(i));
-      }
+
+    void displayCart() {
+        if (electronicProducts.isEmpty()) {
+            System.out.println("No electronic products in cart.");
+        } else {
+            System.out.println("Electronic Products:");
+            System.out.printf("%5s %10s %10s %8s %20s %17s", "Name", "Description", "Price", "Quantity", "Brand", "Warranty");
+            for (ElectronicProduct product : electronicProducts) {
+                System.out.println(product);
+            }
+        }
+    
+        if (clothingProducts.isEmpty()) {
+            System.out.println("No clothing products in cart.");
+        } else {
+            System.out.println("\nClothing Products:");
+            System.out.printf("%5s %10s %10s %8s %20s %17s","Name","Description","Price","Quantity","Size","Color");
+          for(ClothingProduct product:clothingProducts){
+            System.out.println(product);
+          }
+        }
     }
-  }
-  double calculateTotalPrice() { 
-    double totalPrice = 0;
-    for (int i = 0; i < items.size(); i++) {
-      totalPrice += items.get(i).getPrice() * items.get(i).getQuantity();
-    }
-    return totalPrice;
-  }
   public void searchCart(String name) {
     boolean found = false;
     for (Product item : items) {
@@ -192,13 +196,23 @@ class ShoppingCart
     if (!found) {
         System.out.println("Product not found.");
     }
+  }
+   double calculateTotalPrice() { 
+    double totalPrice = 0;
+    for (int i = 0; i < items.size(); i++) {
+      totalPrice += items.get(i).getPrice() * items.get(i).getQuantity();
+    }
+    return totalPrice;
+  }
+  Boolean ISEmpty() {
+    return items.isEmpty();
+}
+ public void clearCart() {
+    items.clear();
+ }
+
 }
 
-  
-  public void clearCart() {
-    items.clear();
-  }
-}
 class Checkout {
     private ShoppingCart cart;
 
@@ -206,7 +220,7 @@ class Checkout {
         this.cart = cart;
     }
   public void processPayment() {
-   if (cart.getCartItems().isEmpty()) {
+   if (cart.ISEmpty()) {
         System.out.println("Your cart is empty.");
         return;
     }
