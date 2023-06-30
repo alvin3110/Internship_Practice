@@ -1,0 +1,272 @@
+create a table product with the fields product id , name, quantity, price, discount.
+
+CREATE TABLE product (product_id INT,name VARCHAR(255),quantity INT,price DECIMAL(10,2),discount DECIMAL(5,2));
+
+ VALUES(123,"mobile",2,20000,1000),(124,"tv",2,30000,1000),(125,"jug",2,2000,100),(126,"laptop",2,200000,1000),(127,"fridge",2,80000,1000),(128,"chair",2,200,10);
+Insert INTO product(pid,pname,quantity,price) VALUES(123,"mobile",2,20000),(123,"jug",2,20000),(123,"mug",2,20000),(123,"tv",2,20000),(123,"mobile",2,20000),
+
+SQL is a programming language used to work with data in relational databases, MySQL is an open-source database product that implements the SQL standard
+
+ddl commands:
+create 
+alter
+drop
+truncate
+
+dml commands:
+insert 
+update
+delete
+select
+
+
+Create a table called "Employees" with the following columns:
+
+employee_id as the primary key
+first_name not null
+last_name not null
+email unique
+hire_date not null with a default value of the current date
+department_id not null with a default value of 0
+
+
+Create a table called "Books" with the following columns:
+
+book_id as the primary key
+title not null
+author not null
+publication_date not null with a default value of '1900-01-01'
+price not null
+quantity not null with a default value of 0
+
+Create a table called "Orders" with the following columns:
+
+order_id as the primary key
+customer_id not null
+order_date not null with a default value of the current date
+total_amount not null
+status not null with a default value of 'Pending'
+
+Create a table called "Students" with the following columns:
+
+student_id as the primary key
+first_name not null
+last_name not null
+date_of_birth not null
+email unique
+enrollment_status not null with a default value of 'Active'
+
+
+
+Create a table called "Countries" with the following columns:
+
+country_id as the primary key
+country_name not null
+population not null
+capital_city
+area not null with a default value of 0
+
+
+ALTER Command: a. You have a table called "Customers" with the following columns:
+
+customer_id (integer) as the primary key
+first_name (varchar)
+last_name (varchar)
+email (varchar) unique
+Add a column named "phone_number" with the data type varchar(15) and make it not null.
+employee_id (integer) as the primary key
+first_name (varchar)
+last_name (varchar)
+hire_date (date)
+Change the data type of the "hire_date" column from date to datetime.
+
+DROP Command: a. You have a table called "Products" that is no longer needed. Your assignment is to drop the "Products" table from the database.
+
+b. You have accidentally created a table called "TempTable" and want to remove it. Your assignment is to drop the "TempTable" from the database.
+
+TRUNCATE Command: a. You have a table called "Orders" that contains a large number of records. Your assignment is to truncate the "Orders" table, removing all records while keeping the table structure intact.
+
+b. You have a table called "Logs" that is used to store log entries. Your assignment is to truncate the "Logs" table, removing all log entries.
+
+[15:13] Lalitha Ujjaneni
+
+a. You have a table called "Employees" with the following columns:
+
+employee_id (integer) as the primary key
+first_name (varchar)
+last_name (varchar)
+hire_date (date)
+
+Scenario: The "Employees" table needs to accommodate an additional column to store the employee's salary. However, it should be placed between the "last_name" and "hire_date" columns. Your assignment is to write an ALTER statement to add the "salary" column of type decimal(10,2) in the desired position.
+
+[15:14] Lalitha Ujjaneni
+
+You have a table called "Products" with the following columns:
+
+product_id (integer) as the primary key
+product_name (varchar)
+price (decimal)
+quantity (integer)
+
+Scenario: The "Products" table needs to have the "price" column modified to allow a maximum of 2 decimal places.
+
+
+
+
+
+
+
+
+
+
+
+
+
+alter table customers add column(hire_date date not null);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table customers modify column(hire_date datetime not null);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(hire_date datetime not null)' at line 1
+mysql> desc customers;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| customer_id  | int(11)     | NO   | PRI | NULL    |       |
+| first_name   | varchar(20) | YES  |     | NULL    |       |
+| last_name    | varchar(20) | YES  |     | NULL    |       |
+| email        | varchar(20) | YES  | UNI | NULL    |       |
+| phone_number | varchar(15) | NO   |     | NULL    |       |
+| hire_date    | date        | NO   |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+6 rows in set (0.04 sec)
+
+mysql> desc employee;
++---------------+--------------+------+-----+------------+-------+
+| Field         | Type         | Null | Key | Default    | Extra |
++---------------+--------------+------+-----+------------+-------+
+| employee_id   | int(11)      | NO   | PRI | NULL       |       |
+| first_name    | varchar(20)  | NO   |     | NULL       |       |
+| last_name     | varchar(20)  | NO   |     | NULL       |       |
+| email         | varchar(100) | YES  | UNI | NULL       |       |
+| hire_date     | date         | NO   |     | 2023-06-23 |       |
+| department_id | int(11)      | NO   |     | 0          |       |
++---------------+--------------+------+-----+------------+-------+
+6 rows in set (0.04 sec)
+
+mysql> alter table employee
+    -> /c
+    -> \c
+mysql> alter table employee modify column(hire_date datetime);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(hire_date datetime)' at line 1
+mysql> alter table employee modify column(hire_date datetime not null);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(hire_date datetime not null)' at line 1
+mysql> alter table employee modify column hire_date datetime not null;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| employee_id   | int(11)      | NO   | PRI | NULL    |       |
+| first_name    | varchar(20)  | NO   |     | NULL    |       |
+| last_name     | varchar(20)  | NO   |     | NULL    |       |
+| email         | varchar(100) | YES  | UNI | NULL    |       |
+| hire_date     | datetime     | NO   |     | NULL    |       |
+| department_id | int(11)      | NO   |     | 0       |       |
++---------------+--------------+------+-----+---------+-------+
+6 rows in set (0.04 sec)
+
+mysql> drop table products;
+ERROR 1051 (42S02): Unknown table 'products'
+mysql> show tables;
++-------------------+
+| Tables_in_project |
++-------------------+
+| books             |
+| countries         |
+| customers         |
+| employee          |
+| orders            |
+| student           |
++-------------------+
+6 rows in set (0.00 sec)
+
+mysql> create table products (pid int ,price int );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> drop table products;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_project |
++-------------------+
+| books             |
+| countries         |
+| customers         |
+| employee          |
+| orders            |
+| student           |
++-------------------+
+6 rows in set (0.00 sec)
+
+mysql> truncate table orders;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from orders;
+Empty set (0.00 sec)
+
+mysql> alter table employee add column(salary decimal(10,2) after last_name);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'after last_name)' at line 1
+mysql> alter table employee add column salary decimal(10,2) after last_name;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> create table product(id int primary key,name varchar(20),price decimal,quantiyt int );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc product;
++----------+---------------+------+-----+---------+-------+
+| Field    | Type          | Null | Key | Default | Extra |
++----------+---------------+------+-----+---------+-------+
+| id       | int(11)       | NO   | PRI | NULL    |       |
+| name     | varchar(20)   | YES  |     | NULL    |       |
+| price    | decimal(10,0) | YES  |     | NULL    |       |
+| quantiyt | int(11)       | YES  |     | NULL    |       |
++----------+---------------+------+-----+---------+-------+
+4 rows in set (0.04 sec)
+
+mysql> alter table product modify column price decimal(10,2);
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc product;
++----------+---------------+------+-----+---------+-------+
+| Field    | Type          | Null | Key | Default | Extra |
++----------+---------------+------+-----+---------+-------+
+| id       | int(11)       | NO   | PRI | NULL    |       |
+| name     | varchar(20)   | YES  |     | NULL    |       |
+| price    | decimal(10,2) | YES  |     | NULL    |       |
+| quantiyt | int(11)       | YES  |     | NULL    |       |
++----------+---------------+------+-----+---------+-------+
+4 rows in set (0.04 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_project |
++-------------------+
+| books             |
+| countries         |
+| customers         |
+| employee          |
+| orders            |
+| product           |
+| student           |
++-------------------+
+7 rows in set (0.00 sec)
+
+
+
+
