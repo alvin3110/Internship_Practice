@@ -1,0 +1,471 @@
+mysql> select * from sales order by total_price;
++----+--------------+----------+------------+-------------+---------------+------------+
+| id | product_name | quantity | unit_price | total_price | customer_name | sale_date  |
++----+--------------+----------+------------+-------------+---------------+------------+
+|  1 | pencil       |        5 |      10.00 |       50.00 | Rahul         | 2023-06-15 |
+|  3 | Gun          |        3 |      20.00 |       60.00 | John wick     | 2023-06-20 |
+|  5 | chart        |       12 |       8.00 |       96.00 | Alvin         | 2023-06-30 |
+|  4 | Paper        |        8 |      12.50 |      100.00 | Dhoni         | 2023-06-25 |
+|  2 | Pen          |       10 |      15.00 |      150.00 | Jack sparrow  | 2023-06-18 |
+|  6 | Mouse        |        1 |    1000.00 |     1000.00 | Sebastian     | 2023-07-01 |
++----+--------------+----------+------------+-------------+---------------+------------+
+6 rows in set (0.01 sec)
+
+mysql> select * from sales order by total_price desc;
++----+--------------+----------+------------+-------------+---------------+------------+
+| id | product_name | quantity | unit_price | total_price | customer_name | sale_date  |
++----+--------------+----------+------------+-------------+---------------+------------+
+|  6 | Mouse        |        1 |    1000.00 |     1000.00 | Sebastian     | 2023-07-01 |
+|  2 | Pen          |       10 |      15.00 |      150.00 | Jack sparrow  | 2023-06-18 |
+|  4 | Paper        |        8 |      12.50 |      100.00 | Dhoni         | 2023-06-25 |
+|  5 | chart        |       12 |       8.00 |       96.00 | Alvin         | 2023-06-30 |
+|  3 | Gun          |        3 |      20.00 |       60.00 | John wick     | 2023-06-20 |
+|  1 | pencil       |        5 |      10.00 |       50.00 | Rahul         | 2023-06-15 |
++----+--------------+----------+------------+-------------+---------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from sales order by product_name,total_price desc;
++----+--------------+----------+------------+-------------+---------------+------------+
+| id | product_name | quantity | unit_price | total_price | customer_name | sale_date  |
++----+--------------+----------+------------+-------------+---------------+------------+
+|  5 | chart        |       12 |       8.00 |       96.00 | Alvin         | 2023-06-30 |
+|  3 | Gun          |        3 |      20.00 |       60.00 | John wick     | 2023-06-20 |
+|  6 | Mouse        |        1 |    1000.00 |     1000.00 | Sebastian     | 2023-07-01 |
+|  4 | Paper        |        8 |      12.50 |      100.00 | Dhoni         | 2023-06-25 |
+|  2 | Pen          |       10 |      15.00 |      150.00 | Jack sparrow  | 2023-06-18 |
+|  1 | pencil       |        5 |      10.00 |       50.00 | Rahul         | 2023-06-15 |
++----+--------------+----------+------------+-------------+---------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from sales limit 2;
++----+--------------+----------+------------+-------------+---------------+------------+
+| id | product_name | quantity | unit_price | total_price | customer_name | sale_date  |
++----+--------------+----------+------------+-------------+---------------+------------+
+|  1 | pencil       |        5 |      10.00 |       50.00 | Rahul         | 2023-06-15 |
+|  2 | Pen          |       10 |      15.00 |      150.00 | Jack sparrow  | 2023-06-18 |
++----+--------------+----------+------------+-------------+---------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from sales order by total_price desc limit 2;
++----+--------------+----------+------------+-------------+---------------+------------+
+| id | product_name | quantity | unit_price | total_price | customer_name | sale_date  |
++----+--------------+----------+------------+-------------+---------------+------------+
+|  6 | Mouse        |        1 |    1000.00 |     1000.00 | Sebastian     | 2023-07-01 |
+|  2 | Pen          |       10 |      15.00 |      150.00 | Jack sparrow  | 2023-06-18 |
++----+--------------+----------+------------+-------------+---------------+------------+
+2 rows in set (0.00 sec)
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Create a new database called "CompanyDB".
+
+CREATE DATABASE CompanyDB;
+Query OK, 1 row affected (0.01 sec)
+ 
+
+Create a table named "Employees" with the following columns:
+EmployeeID (integer, primary key)
+
+FirstName (varchar(50))
+
+LastName (varchar(50))
+
+Age (integer)
+
+Department (varchar(50))
+
+Salary (decimal(10,2))
+
+HireDate (date)
+
+mysql> USE CompanyDB;
+Database changed
+mysql> CREATE TABLE Employees (EmployeeID INT PRIMARY KEY,FirstName VARCHAR(50),LastName VARCHAR(50),Age INT,Department VARCHAR(50),Salary DECIMAL(10, 2),HireDate DATE);
+Query OK, 0 rows affected (0.01 sec)
+
+Insert sample data into the "Employees" table with at least 10 records.
+
+mysql> INSERT INTO Employees (EmployeeID, FirstName, LastName, Age, Department, Salary, HireDate)VALUES(1, 'John', 'Wick', 35, 'HR', 5000.00, '2022-05-15'),(2, 'Jane', 'Smith', 28, 'Sales', 4500.00, '2023-01-10'),(3, 'Mitchell', 'Johnson', 40, 'Engineering', 6000.00, '2021-09-03'),(4, 'Alvin', 'Sebastian', 32, 'Sales', 4800.00, '2022-11-25'),(5, 'David', 'Wilson', 45, 'Finance', 5500.00, '2022-02-18'),(6, 'Sarah', 'Anderson', 38, 'HR', 5200.00, '2023-03-12'),(7, 'Robert', 'Lewandowski', 29, 'Engineering', 4700.00, '2021-12-05'),(8, 'Jessica', 'Brown', 33, 'Marketing', 4900.00, '2023-04-29'),(9, 'David', 'Miller', 36, 'Finance', 5300.00, '2022-07-21'),(10, 'Kent', 'Clark', 31, 'Marketing', 4600.00, '2023-06-15');
+Query OK, 10 rows affected (0.01 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+ 
+
+Write SQL queries to perform the following tasks:
+
+a) Retrieve all columns for all employees.
+
+mysql> SELECT * FROM Employees;
++------------+-----------+-------------+------+-------------+---------+------------+
+| EmployeeID | FirstName | LastName    | Age  | Department  | Salary  | HireDate   |
++------------+-----------+-------------+------+-------------+---------+------------+
+|          1 | John      | Wick        |   35 | HR          | 5000.00 | 2022-05-15 |
+|          2 | Jane      | Smith       |   28 | Sales       | 4500.00 | 2023-01-10 |
+|          3 | Mitchell  | Johnson     |   40 | Engineering | 6000.00 | 2021-09-03 |
+|          4 | Alvin     | Sebastian   |   32 | Sales       | 4800.00 | 2022-11-25 |
+|          5 | David     | Wilson      |   45 | Finance     | 5500.00 | 2022-02-18 |
+|          6 | Sarah     | Anderson    |   38 | HR          | 5200.00 | 2023-03-12 |
+|          7 | Robert    | Lewandowski |   29 | Engineering | 4700.00 | 2021-12-05 |
+|          8 | Jessica   | Brown       |   33 | Marketing   | 4900.00 | 2023-04-29 |
+|          9 | David     | Miller      |   36 | Finance     | 5300.00 | 2022-07-21 |
+|         10 | Kent      | Clark       |   31 | Marketing   | 4600.00 | 2023-06-15 |
++------------+-----------+-------------+------+-------------+---------+------------+
+10 rows in set (0.00 sec)
+
+b) Retrieve the first name and last name of employees with an age greater than 30.
+
+mysql> SELECT FirstName, LastName FROM Employees WHERE Age > 30;
++-----------+-----------+
+| FirstName | LastName  |
++-----------+-----------+
+| John      | Wick      |
+| Mitchell  | Johnson   |
+| Alvin     | Sebastian |
+| David     | Wilson    |
+| Sarah     | Anderson  |
+| Jessica   | Brown     |
+| David     | Miller    |
+| Kent      | Clark     |
++-----------+-----------+
+8 rows in set (0.01 sec)
+
+
+c) Retrieve the employee ID, first name, and last name of employees in the Sales or HR department.
+
+mysql> SELECT EmployeeID, FirstName, LastName FROM Employees WHERE Department IN ('Sales', 'HR');
++------------+-----------+-----------+
+| EmployeeID | FirstName | LastName  |
++------------+-----------+-----------+
+|          1 | John      | Wick      |
+|          2 | Jane      | Smith     |
+|          4 | Alvin     | Sebastian |
+|          6 | Sarah     | Anderson  |
++------------+-----------+-----------+
+4 rows in set (0.00 sec)
+
+d) Retrieve the employee ID, first name, and last name of employees hired between '2022-01-01' and '2022-12-31'.
+
+mysql> SELECT EmployeeID,FirstName,LastName FROM Employees WHERE HireDate BETWEEN '2022-01-01' AND '2022-12-31';
++------------+-----------+-----------+
+| EmployeeID | FirstName | LastName  |
++------------+-----------+-----------+
+|          1 | John      | Wick      |
+|          4 | Alvin     | Sebastian |
+|          5 | David     | Wilson    |
+|          9 | David     | Miller    |
++------------+-----------+-----------+
+4 rows in set (0.01 sec)
+
+e) Retrieve the first name and last name of employees whose first name starts with 'J'.
+
+mysql> SELECT FirstName,LastName FROM Employees WHERE FirstName LIKE 'J%';
++-----------+----------+
+| FirstName | LastName |
++-----------+----------+
+| John      | Wick     |
+| Jane      | Smith    |
+| Jessica   | Brown    |
++-----------+----------+
+3 rows in set (0.00 sec)
+
+f) Retrieve the first name and last name of employees whose last name ends with 'son'.
+
+mysql> SELECT FirstName,LastName FROM Employees WHERE LastName LIKE '%son';
++-----------+----------+
+| FirstName | LastName |
++-----------+----------+
+| Mitchell  | Johnson  |
+| David     | Wilson   |
+| Sarah     | Anderson |
++-----------+----------+
+3 rows in set (0.00 sec)
+
+g) Retrieve the employee ID, first name, and last name of employees whose age is either 25, 30, or 35.
+
+mysql> SELECT EmployeeID,FirstName,LastName FROM Employees WHERE Age=25 OR Age=30 OR Age=35;
++------------+-----------+----------+
+| EmployeeID | FirstName | LastName |
++------------+-----------+----------+
+|          1 | John      | Wick     |
++------------+-----------+----------+
+1 row in set (0.00 sec)
+
+h) Retrieve the average salary of all employees.
+
+mysql> SELECT AVG(Salary) AS AverageSalary FROM Employees;
++---------------+
+| AverageSalary |
++---------------+
+|   5050.000000 |
++---------------+
+1 row in set (0.01 sec)
+
+
+i) Retrieve the total salary of employees in the Sales department.
+
+mysql> SELECT SUM(Salary) FROM Employees WHERE Department='Sales';
++-------------+
+| SUM(Salary) |
++-------------+
+|     9300.00 |
++-------------+
+1 row in set (0.00 sec)
+
+j) Retrieve the count of employees in the HR department.
+
+mysql> SELECT COUNT(*) FROM Employees WHERE Department='HR';
++----------+
+| COUNT(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
+
+k) Retrieve the employee ID, first name, and last name of employees whose hire date is in the current year.
+
+mysql> SELECT EmployeeID,FirstName,LastName FROM Employees WHERE YEAR(HireDate)=2023;
++------------+-----------+----------+
+| EmployeeID | FirstName | LastName |
++------------+-----------+----------+
+|          2 | Jane      | Smith    |
+|          6 | Sarah     | Anderson |
+|          8 | Jessica   | Brown    |
+|         10 | Kent      | Clark    |
++------------+-----------+----------+
+4 rows in set (0.01 sec)
+
+l) Retrieve the employee ID, first name, and last name of employees whose first name is not 'John'.
+
+mysql> SELECT EmployeeID,FirstName,LastName FROM Employees WHERE FirstName!='John';
++------------+-----------+-------------+
+| EmployeeID | FirstName | LastName    |
++------------+-----------+-------------+
+|          2 | Jane      | Smith       |
+|          3 | Mitchell  | Johnson     |
+|          4 | Alvin     | Sebastian   |
+|          5 | David     | Wilson      |
+|          6 | Sarah     | Anderson    |
+|          7 | Robert    | Lewandowski |
+|          8 | Jessica   | Brown       |
+|          9 | David     | Miller      |
+|         10 | Kent      | Clark       |
++------------+-----------+-------------+
+9 rows in set (0.00 sec)
+
+m) Retrieve the employee ID, first name, and last name of employees sorted by their salary in descending order.
+
+mysql> SELECT FirstName,LastName FROM Employees ORDER BY Salary DESC;
++-----------+-------------+
+| FirstName | LastName    |
++-----------+-------------+
+| Mitchell  | Johnson     |
+| David     | Wilson      |
+| David     | Miller      |
+| Sarah     | Anderson    |
+| John      | Wick        |
+| Jessica   | Brown       |
+| Alvin     | Sebastian   |
+| Robert    | Lewandowski |
+| Kent      | Clark       |
+| Jane      | Smith       |
++-----------+-------------+
+10 rows in set (0.00 sec)
+
+n) Retrieve the first 5 records from the "Employees" table.
+
+mysql> SELECT * FROM Employees LIMIT 5;
++------------+-----------+-----------+------+-------------+---------+------------+
+| EmployeeID | FirstName | LastName  | Age  | Department  | Salary  | HireDate   |
++------------+-----------+-----------+------+-------------+---------+------------+
+|          1 | John      | Wick      |   35 | HR          | 5000.00 | 2022-05-15 |
+|          2 | Jane      | Smith     |   28 | Sales       | 4500.00 | 2023-01-10 |
+|          3 | Mitchell  | Johnson   |   40 | Engineering | 6000.00 | 2021-09-03 |
+|          4 | Alvin     | Sebastian |   32 | Sales       | 4800.00 | 2022-11-25 |
+|          5 | David     | Wilson    |   45 | Finance     | 5500.00 | 2022-02-18 |
++------------+-----------+-----------+------+-------------+---------+------------+
+5 rows in set (0.00 sec)
+
+o) Retrieve the employee ID, first name, and last name of employees whose salary is between $3000 and $5000.
+
+mysql> SELECT EmployeeID,FirstName,LastName FROM Employees WHERE Salary BETWEEN 3000 AND 5000;
++------------+-----------+-------------+
+| EmployeeID | FirstName | LastName    |
++------------+-----------+-------------+
+|          1 | John      | Wick        |
+|          2 | Jane      | Smith       |
+|          4 | Alvin     | Sebastian   |
+|          7 | Robert    | Lewandowski |
+|          8 | Jessica   | Brown       |
+|         10 | Kent      | Clark       |
++------------+-----------+-------------+
+6 rows in set (0.00 sec)
+
+p) Retrieve the employee ID, first name, and last name of employees whose first name is either 'John' or 'Jane'.
+
+mysql> SELECT EmployeeID,FirstName,LastName FROM Employees WHERE FirstName IN('John','Jane');
++------------+-----------+----------+
+| EmployeeID | FirstName | LastName |
++------------+-----------+----------+
+|          1 | John      | Wick     |
+|          2 | Jane      | Smith    |
++------------+-----------+----------+
+2 rows in set (0.00 sec)
+
+q) Retrieve the employee ID, first name, and last name of employees whose last name is not 'Smith' and are in the age range of 25 to 40.
+
+mysql> SELECT EmployeeID,FirstName,LastName FROM Employees WHERE LastName!='Smith' AND Age BETWEEN 25 AND 40;
++------------+-----------+-------------+
+| EmployeeID | FirstName | LastName    |
++------------+-----------+-------------+
+|          1 | John      | Wick        |
+|          3 | Mitchell  | Johnson     |
+|          4 | Alvin     | Sebastian   |
+|          6 | Sarah     | Anderson    |
+|          7 | Robert    | Lewandowski |
+|          8 | Jessica   | Brown       |
+|          9 | David     | Miller      |
+|         10 | Kent      | Clark       |
++------------+-----------+-------------+
+8 rows in set (0.00 sec)
+
+r) Retrieve the employee ID, first name, and last name of employees whose department is either 'Sales' or 'Marketing' and age is greater than 35.
+
+mysql> SELECT EmployeeID,FirstName,LastName FROM Employees WHERE Department IN('Sales','Marketing') AND Age>25;
++------------+-----------+-----------+
+| EmployeeID | FirstName | LastName  |
++------------+-----------+-----------+
+|          2 | Jane      | Smith     |
+|          4 | Alvin     | Sebastian |
+|          8 | Jessica   | Brown     |
+|         10 | Kent      | Clark     |
++------------+-----------+-----------+
+4 rows in set (0.00 sec)
+
+s) Retrieve the employee ID, first name, and last name of employees whose hire date is within the last 6 months.
+
+mysql> SELECT EmployeeID,FirstName,LastName FROM Employees WHERE HireDate>=DATE_SUB(CURDATE(),INTERVAL 6 MONTH);
++------------+-----------+----------+
+| EmployeeID | FirstName | LastName |
++------------+-----------+----------+
+|          2 | Jane      | Smith    |
+|          6 | Sarah     | Anderson |
+|          8 | Jessica   | Brown    |
+|         10 | Kent      | Clark    |
++------------+-----------+----------+
+4 rows in set (0.00 sec)
+
+
+t) Retrieve the employee ID, first name, and last name of employees whose first name contains the letter 'a'.
+
+mysql> SELECT EmployeeID,FirstName,LastName FROM Employees WHERE FirstName LIKE '%a%';
++------------+-----------+-----------+
+| EmployeeID | FirstName | LastName  |
++------------+-----------+-----------+
+|          2 | Jane      | Smith     |
+|          4 | Alvin     | Sebastian |
+|          5 | David     | Wilson    |
+|          6 | Sarah     | Anderson  |
+|          8 | Jessica   | Brown     |
+|          9 | David     | Miller    |
++------------+-----------+-----------+
+6 rows in set (0.00 sec)
+
+
+
+u) Retrieve the employee ID, first name, and last name of employees whose last name starts with 'S' and has a length of 6 characters.
+
+mysql> SELECT EmployeeID,FirstName,LastName FROM Employees WHERE LastName LIKE 'S%' AND LENGTH(LastName)>=6;
++------------+-----------+-----------+
+| EmployeeID | FirstName | LastName  |
++------------+-----------+-----------+
+|          4 | Alvin     | Sebastian |
++------------+-----------+-----------+
+1 row in set (0.00 sec)
+
+v) Retrieve the employee ID, first name, and last name of employees whose hire month is February.
+
+mysql> SELECT EmployeeID,FirstName,LastName FROM Employees WHERE MONTH(HireDate)=2;
++------------+-----------+----------+
+| EmployeeID | FirstName | LastName |
++------------+-----------+----------+
+|          5 | David     | Wilson   |
++------------+-----------+----------+
+1 row in set (0.01 sec)
+
+w) Retrieve the employee ID, first name, and last name of employees whose age is greater than the average age of all employees.
+
+mysql> SELECT EmployeeID,FirstName,LastName FROM Employees WHERE Age>(Select AVG(Age) FROM Employees);
++------------+-----------+----------+
+| EmployeeID | FirstName | LastName |
++------------+-----------+----------+
+|          1 | John      | Wick     |
+|          3 | Mitchell  | Johnson  |
+|          5 | David     | Wilson   |
+|          6 | Sarah     | Anderson |
+|          9 | David     | Miller   |
++------------+-----------+----------+
+5 rows in set (0.00 sec)
+
+x) Retrieve the employee ID, first name, and last name of employees whose salary is higher than the maximum salary in the Sales department.
+
+mysql> SELECT EmployeeID,FirstName,LastName FROM Employees WHERE Salary>(Select MAX(Salary) FROM Employees WHERE Department='Sales');
++------------+-----------+----------+
+| EmployeeID | FirstName | LastName |
++------------+-----------+----------+
+|          1 | John      | Wick     |
+|          3 | Mitchell  | Johnson  |
+|          5 | David     | Wilson   |
+|          6 | Sarah     | Anderson |
+|          8 | Jessica   | Brown    |
+|          9 | David     | Miller   |
++------------+-----------+----------+
+6 rows in set (0.00 sec)
+
+y) Retrieve the employee ID, first name, and last name of employees whose hire date is before '2020-01-01' or after '2023-01-01'.
+
+mysql> SELECT EmployeeID,FirstName,LastName FROM Employees WHERE HireDate<'2021-01-01' OR HireDate>'2023-01-01';
++------------+-----------+----------+
+| EmployeeID | FirstName | LastName |
++------------+-----------+----------+
+|          2 | Jane      | Smith    |
+|          6 | Sarah     | Anderson |
+|          8 | Jessica   | Brown    |
+|         10 | Kent      | Clark    |
++------------+-----------+----------+
+4 rows in set (0.00 sec)
+
+z) Retrieve the employee ID, first name, and last name of employees whose last name contains the string 'son' in any position.
+
+mysql> SELECT EmployeeID,FirstName,LastName FROM Employees WHERE LastName Like '%son%';
++------------+-----------+----------+
+| EmployeeID | FirstName | LastName |
++------------+-----------+----------+
+|          3 | Mitchell  | Johnson  |
+|          5 | David     | Wilson   |
+|          6 | Sarah     | Anderson |
++------------+-----------+----------+
+3 rows in set (0.00 sec)
+
+aa) Retrieve the employee ID, first name, and last name of employees whose department is 'Finance' and age is not equal to 40.
+
+bb) Retrieve the employee ID, first name, and last name of employees whose salary is greater than the average salary of employees in the Marketing department.
+
+cc) Retrieve the employee ID, first name, and last name of employees whose hire date is in the year 2023 and the month is either 'January' or 'February'.
+
+dd) Retrieve the employee ID, first name, and last name of employees whose first name starts with 'A' and the last name ends with 'son'.
+
+ee) Retrieve the employee ID, first name, and last name of employees whose age is less than 30 or salary is greater than $5000.
+
+ff) Retrieve the employee ID, first name, and last name of employees whose department is 'Engineering' and age is between 25 and 35.
+
+gg) Retrieve the employee ID, first name, and last name of employees whose hire date is on a Monday.
+
+hh) Retrieve the employee ID, first name, and last name of employees whose last name contains the substring 'smi' (case-insensitive).
+
+ii) Retrieve the employee ID, first name, and last name of employees whose salary is within the top 10% of the highest salaries.
+
+jj) Retrieve the employee ID, first name, and last name of employees whose hire date is after 30 days from the current date.
+
+kk) Retrieve the employee ID, first name, and last name of employees whose age is not in the range of 30 to 40.
+
+ll) Retrieve the employee ID, first name, and last name of employees whose first name has exactly four characters.
