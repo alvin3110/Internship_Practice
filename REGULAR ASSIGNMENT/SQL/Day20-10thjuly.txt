@@ -1,0 +1,122 @@
+Retrieve all students along with the corresponding course details they are enrolled in (student_id, student_name, course_id, course_name).
+
+select s.student_id,s.student_name,c.course_id,c.course_name from students s join enrollments e on s.student_id=e.student_id join courses c one.course_id=c.course_id;
++------------+--------------+-----------+-----------------+
+| student_id | student_name | course_id | course_name     |
++------------+--------------+-----------+-----------------+
+|          1 | Alvin        |        10 | DBMS            |
+|          1 | Alvin        |        11 | Data Structures |
+|          2 | Rahul        |        11 | Data Structures |
+|         10 | Messi        |        10 | DBMS            |
++------------+--------------+-----------+-----------------+
+4 rows in set (0.00 sec)
+
+Find the students who are enrolled in a specific course and display their student details (student_id, student_name).
+
+select s.student_id,s.student_name from students s join enrollments e on s.student_id=e.student_id where e.course_id=10;
++------------+--------------+
+| student_id | student_name |
++------------+--------------+
+|          1 | Alvin        |
+|         10 | Messi        |
++------------+--------------+
+2 rows in set (0.00 sec)
+
+Retrieve the course details (course_id, course_name) for a specific student.
+
+select c.course_id,c.course_name from courses c join enrollments e on c.course_id=e.course_id where e.student_id=2;
++-----------+-----------------+
+| course_id | course_name     |
++-----------+-----------------+
+|        11 | Data Structures |
++-----------+-----------------+
+1 row in set (0.00 sec)
+
+mysql> select c.course_id,c.course_name from courses c join enrollments e on c.course_id=e.course_id where e.student_id=1;
++-----------+-----------------+
+| course_id | course_name     |
++-----------+-----------------+
+|        10 | DBMS            |
+|        11 | Data Structures |
++-----------+-----------------+
+2 rows in set (0.00 sec)
+
+Find the students who are not enrolled in any course and display their student details (student_id, student_name).
+
+mysql> SELECT s.student_id, s.student_name FROM students s LEFT JOIN enrollments e ON s.student_id = e.student_id WHERE e.student_id IS NULL;
++------------+--------------+
+| student_id | student_name |
++------------+--------------+
+|          7 | cr7          |
++------------+--------------+
+1 row in set (0.00 sec)
+
+
+Retrieve the student details (student_id, student_name) for students who are enrolled in multiple courses.
+
+mysql> SELECT s.student_id, s.student_name FROM students s JOIN enrollments e ON s.student_id = e.student_id GROUP BY s.student_id, s.student_name HAVING COUNT(e.course_id) > 1;
++------------+--------------+
+| student_id | student_name |
++------------+--------------+
+|          1 | Alvin        |
++------------+--------------+
+1 row in set (0.00 sec)
+
+
+Calculate the total number of students enrolled in each course and display the course details (course_id, course_name) along with the student count.
+
+mysql> SELECT c.course_id, c.course_name, COUNT(e.student_id) AS student_count FROM courses c LEFT JOIN enrollments e ON c.course_id = e.course_id GROUP BY c.course_id, c.course_name;
++-----------+-----------------+---------------+
+| course_id | course_name     | student_count |
++-----------+-----------------+---------------+
+|        10 | DBMS            |             2 |
+|        11 | Data Structures |             2 |
++-----------+-----------------+---------------+
+2 rows in set (0.00 sec)
+
+
+Retrieve the student details (student_id, student_name) for students born after a certain date who are enrolled in a specific course.
+
+mysql> SELECT s.student_id, s.student_name FROM students s JOIN enrollments e ON s.student_id = e.student_id WHERE s.date_of_birth > '1988-01-01' AND e.course_id = 10;
++------------+--------------+
+| student_id | student_name |
++------------+--------------+
+|          1 | Alvin        |
+|         10 | Messi        |
++------------+--------------+
+2 rows in set (0.00 sec)
+
+
+Find the courses with no students enrolled and display the course details (course_id, course_name).
+
+mysql> SELECT c.course_id, c.course_name FROM courses c LEFT JOIN enrollments e ON c.course_id = e.course_id WHERE e.student_id IS NULL;
++-----------+-------------+
+| course_id | course_name |
++-----------+-------------+
+|         4 | aiml        |
++-----------+-------------+
+1 row in set (0.00 sec)
+
+
+Retrieve the student details (student_id, student_name) for students enrolled in courses with a specific course name.
+
+mysql> SELECT s.student_id, s.student_name FROM students s JOIN enrollments e ON s.student_id = e.student_id JOIN courses c ON e.course_id = c.course_id WHERE c.course_name = 'DBMS';
++------------+--------------+
+| student_id | student_name |
++------------+--------------+
+|          1 | Alvin        |
+|         10 | Messi        |
++------------+--------------+
+2 rows in set (0.00 sec)
+
+
+Find the courses with the highest number of enrolled students and display the course details (course_id, course_name) along with the student count.
+
+mysql> SELECT c.course_id, c.course_name, COUNT(*) AS student_count FROM courses c JOIN enrollments e ON c.course_id = e.course_id GROUP BY c.course_id, c.course_name;
++-----------+-----------------+---------------+
+| course_id | course_name     | student_count |
++-----------+-----------------+---------------+
+|        10 | DBMS            |             2 |
+|        11 | Data Structures |             2 |
++-----------+-----------------+---------------+
+2 rows in set (0.00 sec)
