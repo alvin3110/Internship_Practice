@@ -281,6 +281,6 @@ class OnlineShoppingSystem{
     } while (choice != 0);
   }
 }
-
+//This mini Java project implements a simple online shopping system. It includes interfaces, inheritance, overriding, collections, and custom exceptions. Users can view products, add them to a shopping cart, and proceed to checkout. Key components include product classes (ElectronicProduct and ClothingProduct) implementing a common "Product" interface, a ShoppingCart class to manage selected products, and a Checkout class for payment and shipping. Custom exceptions handle cases like insufficient stock or invalid payment information.
 
 

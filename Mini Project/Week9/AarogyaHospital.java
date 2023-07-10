@@ -462,6 +462,8 @@ public class AarogyaHospital{
     }
   }
 }
-          
+//This program implements a patient management system for a hospital. It includes classes for Patient and PatientManagementSystem. The Patient class represents a patient's details such as name, age, gender, contact information, and recovery status. The PatientManagementSystem class handles operations related to adding, searching, updating, and deleting patient records. The PatientManagementSystem allows users to perform various actions, such as adding a new patient, searching for patients by ID, name, city, or age group, marking a patient as recovered, displaying the list of patients, updating patient records, and deleting patient records.
+//Input validation is performed for certain fields like age, Aadhar Card number, and contact number. Custom exceptions are thrown to handle invalid data input.
+//Overall, the program provides functionality to manage patient records in a hospital system efficiently.
 
        

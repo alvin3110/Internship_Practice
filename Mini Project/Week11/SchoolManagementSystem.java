@@ -1,3 +1,10 @@
+// // You are tasked with creating a program to model a School. The School has a list of Teachers and a list of Students. Each Teacher has a name and a subject that they teach. Each Student has a name and a grade level Your program should have the following classes:
+// Teacher: This class should have private fields for the teacher's name and subject, as well as getters and setters for these fields.
+// Student: This class should have private fields for the student's name and grade level, as well as getters and setters for these fields.
+// School: This class should have private fields for the list of Teachers and the list of Students, as well as methods to add and remove Teachers and Students from the lists, and methods to print the lists of Teachers and Students. Additionally, this class should have methods to find a Teacher or Student by name and to remove a Teacher or Student from the School.
+// Your program should have a main method that allows users to interact with the School object and perform the actions listed above. The program should continue running until the user chooses to exit.
+// I hope this gives you a good starting point for your assignment!
+
 import java.util.ArrayList;
 
 class Teacher {
@@ -140,3 +147,6 @@ public class SchoolManagementSystem {
         }
     }
 }
+//This school management system allows for the management of students, teachers, courses, and grades. It includes classes for Student and Teacher, which store relevant information such as names and unique IDs. The system also includes a Course class to represent academic courses.
+//Students can be enrolled in courses and their grades can be recorded. Teachers can be assigned to courses and manage the grading process. The program enables the addition, removal, and retrieval of student and teacher records. It also allows for the creation, modification, and deletion of courses.
+//Overall, this system provides basic functionality for managing student, teacher, course, and grade data within a school setting.

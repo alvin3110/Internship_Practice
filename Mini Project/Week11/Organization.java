@@ -210,4 +210,4 @@ class Organization{
     System.out.println(it);
   }
 }
-
+//This program models an organization with employees and departments. It includes classes for Employee and Department, with additional subclasses for Manager and Developer, and subclasses for Marketing and IT departments. The program simulates employee management and department operations.

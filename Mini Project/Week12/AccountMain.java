@@ -150,3 +150,6 @@ public class AccountMain{
     bank.searchByAccountType("Savings");
   }
 }
+//The given code implements a basic banking system with checking and savings accounts. It includes classes for CheckingAccount, SavingsAccount, and Bank. The CheckingAccount and SavingsAccount classes represent different types of accounts and have methods to retrieve account information, deposit and withdraw money, and calculate interest (only in the SavingsAccount class).
+//The Bank class manages a list of accounts and provides methods to create and delete accounts, as well as search for accounts by account number or account type.
+//In the main method, a Bank object is created, and instances of CheckingAccount and SavingsAccount are added to the bank. The code demonstrates searching for accounts by account number and account type.
