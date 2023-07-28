@@ -1,0 +1,241 @@
+Employee Table:
+
+employee_id (Primary Key)
+employee_name
+department_id (Foreign Key referencing Department table)
+salary
+
+mysql> CREATE TABLE Employee ( employee_id INT PRIMARY KEY, employee_name VARCHAR(255), department_id INT, salary DECIMAL(10, 2), FOREIGN KEY (department_id) REFERENCES Department(department_id) );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> INSERT INTO Employee (employee_id, employee_name, department_id, salary) VALUES (1, 'Alvin', 1, 5000), (2, 'Ambani', 1, 6000),(3, 'Tony', 2, 5500), (4, 'John', 2, 6500), (5, 'Shreyas', 3, 7000);
+Query OK, 5 rows affected (0.00 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+
+Department Table:
+
+department_id (Primary Key)
+department_name
+
+mysql> CREATE TABLE Department ( department_id INT PRIMARY KEY, department_name VARCHAR(255) );
+Query OK, 0 rows affected (0.01 sec)
+
+INSERT INTO Department (department_id, department_name)VALUES (1, 'HR'),(2, 'Finance'),(3, 'Development');
+Query OK, 3 rows affected (0.00 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+
+
+Assignment:
+
+Inner Join: Retrieve all employee records along with their corresponding department details (employee_id, employee_name, department_id, department_name) using an inner join operation between the Employee and Department tables.
+
+mysql> SELECT e.employee_id, e.employee_name, e.department_id, d.department_name FROM Employee e INNER JOIN Department d ON e.department_id = d.department_id;
++-------------+---------------+---------------+-----------------+
+| employee_id | employee_name | department_id | department_name |
++-------------+---------------+---------------+-----------------+
+|           1 | Alvin         |             1 | HR              |
+|           2 | Ambani        |             1 | HR              |
+|           3 | Tony          |             2 | Finance         |
+|           4 | John          |             2 | Finance         |
+|           5 | Shreyas       |             3 | Development     |
++-------------+---------------+---------------+-----------------+
+5 rows in set (0.00 sec)
+
+
+
+Left Outer Join: Retrieve all department records along with the employees (if any) in each department. Include the department details (department_id, department_name) and the corresponding employee details (employee_id, employee_name) using a left outer join operation between the Department and Employee tables.
+
+mysql> SELECT d.department_id, d.department_name, e.employee_id, e.employee_name FROM Department d LEFT OUTER JOIN Employee e ON d.department_id = e.department_id;
++---------------+-----------------+-------------+---------------+
+| department_id | department_name | employee_id | employee_name |
++---------------+-----------------+-------------+---------------+
+|             1 | HR              |           1 | Alvin         |
+|             1 | HR              |           2 | Ambani        |
+|             2 | Finance         |           3 | Tony          |
+|             2 | Finance         |           4 | John          |
+|             3 | Development     |           5 | Shreyas       |
++---------------+-----------------+-------------+---------------+
+5 rows in set (0.00 sec)
+
+
+Right Outer Join: Retrieve all employee records along with their corresponding department details (if any). Include the employee details (employee_id, employee_name) and the department details (department_id, department_name) using a right outer join operation between the Employee and Department tables.
+
+mysql> SELECT e.employee_id, e.employee_name, d.department_id, d.department_name FROM Employee e RIGHT OUTER JOIN Department d ON e.department_id = d.department_id;
++-------------+---------------+---------------+-----------------+
+| employee_id | employee_name | department_id | department_name |
++-------------+---------------+---------------+-----------------+
+|           1 | Alvin         |             1 | HR              |
+|           2 | Ambani        |             1 | HR              |
+|           3 | Tony          |             2 | Finance         |
+|           4 | John          |             2 | Finance         |
+|           5 | Shreyas       |             3 | Development     |
++-------------+---------------+---------------+-----------------+
+5 rows in set (0.00 sec)
+
+
+Full Outer Join: Retrieve all employee and department records, including those that do not have a matching record in the other table. Include the employee details (employee_id, employee_name) and the department details (department_id, department_name) using a full outer join operation between the Employee and Department tables.
+
+mysql> SELECT e.employee_id, e.employee_name, d.department_id, d.department_name FROM Employee e  LEFT OUTER JOIN Department d ON e.department_id = d.department_id UNION SELECT e.employee_id, e.employee_name, d.department_id, d.department_name FROM Employee e RIGHT OUTER JOIN Department d ON e.department_id = d.department_id WHERE e.department_id IS NULL;
++-------------+---------------+---------------+-----------------+
+| employee_id | employee_name | department_id | department_name |
++-------------+---------------+---------------+-----------------+
+|           1 | Alvin         |             1 | HR              |
+|           2 | Ambani        |             1 | HR              |
+|           3 | Tony          |             2 | Finance         |
+|           4 | John          |             2 | Finance         |
+|           5 | Shreyas       |             3 | Development     |
++-------------+---------------+---------------+-----------------+
+5 rows in set (0.00 sec)
+
+
+Cross Join: Retrieve all possible combinations of employee and department records. Include the employee details (employee_id, employee_name) and the department details (department_id, department_name) using a cross join operation between the Employee and Department tables.
+
+mysql> SELECT e.employee_id, e.employee_name, d.department_id, d.department_name FROM Employee e CROSS JOIN Department d;
++-------------+---------------+---------------+-----------------+
+| employee_id | employee_name | department_id | department_name |
++-------------+---------------+---------------+-----------------+
+|           1 | Alvin         |             1 | HR              |
+|           1 | Alvin         |             2 | Finance         |
+|           1 | Alvin         |             3 | Development     |
+|           2 | Ambani        |             1 | HR              |
+|           2 | Ambani        |             2 | Finance         |
+|           2 | Ambani        |             3 | Development     |
+|           3 | Tony          |             1 | HR              |
+|           3 | Tony          |             2 | Finance         |
+|           3 | Tony          |             3 | Development     |
+|           4 | John          |             1 | HR              |
+|           4 | John          |             2 | Finance         |
+|           4 | John          |             3 | Development     |
+|           5 | Shreyas       |             1 | HR              |
+|           5 | Shreyas       |             2 | Finance         |
+|           5 | Shreyas       |             3 | Development     |
++-------------+---------------+---------------+-----------------+
+15 rows in set (0.00 sec)
+
+
+Self Join: Retrieve the employee records along with the details of their managers. Include the employee details (employee_id, employee_name) and the manager details (manager_id, manager_name) using a self join operation on the Employee table, where the manager_id matches the employee_id.
+
+
+
+
+
+
+
+
+Retrieve all users along with their corresponding department details (employee_id, employee_name, department_id, department_name).
+
+mysql> SELECT e.employee_id, e.employee_name, e.department_id, d.department_name FROM Employee e JOIN Department d ON e.department_id = d.department_id;
++-------------+---------------+---------------+-----------------+
+| employee_id | employee_name | department_id | department_name |
++-------------+---------------+---------------+-----------------+
+|           1 | Alvin         |             1 | HR              |
+|           2 | Ambani        |             1 | HR              |
+|           3 | Tony          |             2 | Finance         |
+|           4 | John          |             2 | Finance         |
+|           5 | Shreyas       |             3 | Development     |
++-------------+---------------+---------------+-----------------+
+5 rows in set (0.00 sec)
+
+
+Find the total number of users in each department and display the department details (department_id, department_name) along with the user count.
+
+mysql> SELECT d.department_id, d.department_name, COUNT(e.employee_id) AS user_count FROM Department d LEFT JOIN Employee e ON d.department_id = e.department_id GROUP BY d.department_id, d.department_name;
++---------------+-----------------+------------+
+| department_id | department_name | user_count |
++---------------+-----------------+------------+
+|             1 | HR              |          2 |
+|             2 | Finance         |          2 |
+|             3 | Development     |          1 |
++---------------+-----------------+------------+
+3 rows in set (0.00 sec)
+
+Retrieve the user details (employee_id, employee_name) for users who belong to a specific department.
+
+mysql> SELECT employee_id, employee_name FROM Employee WHERE department_id = 1;
++-------------+---------------+
+| employee_id | employee_name |
++-------------+---------------+
+|           1 | Alvin         |
+|           2 | Ambani        |
++-------------+---------------+
+2 rows in set (0.00 sec)
+
+
+Calculate the average salary for each department and display the department details (department_id, department_name) along with the average salary.
+
+SELECT e.department_id, d.department_name, AVG(e.salary) AS average_salary FROM Employee e JOIN Department d ON e.department_id = d.department_id GROUP BY e.department_id, d.department_name;
++---------------+-----------------+----------------+
+| department_id | department_name | average_salary |
++---------------+-----------------+----------------+
+|             1 | HR              |    5500.000000 |
+|             2 | Finance         |    6000.000000 |
+|             3 | Development     |    7000.000000 |
++---------------+-----------------+----------------+
+3 rows in set (0.01 sec)
+
+
+Find the departments with the highest total salary expenditure and display the department details (department_id, department_name) along with the total salary amount.
+
+mysql> SELECT e.department_id, d.department_name, SUM(e.salary) AS total_salary_expenditure FROM Employee e JOIN Department d ON e.department_id = d.department_id GROUP BY e.department_id, d.department_name HAVING SUM(e.salary) = ( SELECT MAX(total_salary) FROM ( SELECT department_id, SUM(salary) AS total_salary FROM Employee GROUP BY department_id ) AS department_salary );
++---------------+-----------------+--------------------------+
+| department_id | department_name | total_salary_expenditure |
++---------------+-----------------+--------------------------+
+|             2 | Finance         |                 12000.00 |
++---------------+-----------------+--------------------------+
+1 row in set (0.00 sec)
+
+Retrieve the user details (employee_id, employee_name) for users who have a salary above a certain threshold.
+
+mysql> SELECT employee_id, employee_name FROM Employee WHERE salary > 5000;
++-------------+---------------+
+| employee_id | employee_name |
++-------------+---------------+
+|           2 | Ambani        |
+|           3 | Tony          |
+|           4 | John          |
+|           5 | Shreyas       |
++-------------+---------------+
+4 rows in set (0.00 sec)
+
+Find the departments with no users and display the department details (department_id, department_name).
+
+mysql> SELECT d.department_id, d.department_name FROM Department d LEFT JOIN Employee e ON d.department_id = e.department_id WHERE e.employee_id IS NULL;
+Empty set (0.01 sec)
+
+Retrieve the user details (employee_id, employee_name) for users who have the same salary as their department's average salary.
+
+mysql> SELECT e.employee_id, e.employee_name FROM Employee e JOIN (SELECT department_id, AVG(salary) AS avg_salary FROM Employee GROUP BY department_id ) AS dept_avg_salary ON e.department_id = dept_avg_salary.department_id WHERE e.salary = dept_avg_salary.avg_salary;
++-------------+---------------+
+| employee_id | employee_name |
++-------------+---------------+
+|           5 | Shreyas       |
++-------------+---------------+
+1 row in set (0.01 sec)
+
+Calculate the minimum and maximum salary across all departments and display the department details (department_id, department_name) along with the respective minimum and maximum salaries.
+
+mysql> SELECT e.department_id, d.department_name, MIN(e.salary) AS min_salary, MAX(e.salary) AS max_salary FROM Employee e JOIN Department d ON e.department_id = d.department_id GROUP BY e.department_id, d.department_name;
++---------------+-----------------+------------+------------+
+| department_id | department_name | min_salary | max_salary |
++---------------+-----------------+------------+------------+
+|             1 | HR              |    5000.00 |    6000.00 |
+|             2 | Finance         |    5500.00 |    6500.00 |
+|             3 | Development     |    7000.00 |    7000.00 |
++---------------+-----------------+------------+------------+
+3 rows in set (0.00 sec)
+
+
+Retrieve the user details (employee_id, employee_name) for users who have the highest salary in their respective department.
+
+mysql> SELECT e.employee_id, e.employee_name FROM Employee e JOIN ( SELECT department_id, MAX(salary) AS max_salary FROM Employee GROUP BY department_id ) AS dept_max_salary ON e.department_id = dept_max_salary.department_id AND e.salary = dept_max_salary.max_salary;
++-------------+---------------+
+| employee_id | employee_name |
++-------------+---------------+
+|           2 | Ambani        |
+|           4 | John          |
+|           5 | Shreyas       |
++-------------+---------------+
+3 rows in set (0.00 sec)
+
